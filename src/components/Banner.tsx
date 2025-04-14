@@ -124,7 +124,7 @@ const Banner: React.FC<BannerProps> = ({ name, title }) => {
   return (
     <>
       {/* Version bureau - barre latérale */}
-      <div className="fixed top-0 left-0 h-full w-64 flex-col overflow-hidden hidden md:flex" style={{
+      <div className="fixed top-0 left-0 h-full w-64 flex-col overflow-hidden hidden md:flex border-r-0" style={{
         backgroundImage: `url(${imagePort})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -289,9 +289,6 @@ const Banner: React.FC<BannerProps> = ({ name, title }) => {
           </div>
         </div>
       </div>
-
-      {/* Ajustement du contenu principal pour le responsive */}
-      <div className="md:ml-64"></div>
     </>
   );
 };
