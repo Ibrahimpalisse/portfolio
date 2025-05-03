@@ -248,7 +248,7 @@ function PrevArrow(props) {
   return (
     <button
       className={
-        `${className} z-50 flex items-center justify-center !left-0 md:!-left-12 !top-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-400 hover:bg-yellow-500 text-black shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border-4 border-black transition-all duration-200 focus:outline-none hover:scale-110`
+        `${className} z-30 flex items-center justify-center !left-0 md:!-left-12 !top-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-400 hover:bg-yellow-500 text-black shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border-4 border-black transition-all duration-200 focus:outline-none hover:scale-110`
       }
       style={{ ...style, display: 'block' }}
       onClick={onClick}
@@ -266,7 +266,7 @@ function NextArrow(props) {
   return (
     <button
       className={
-        `${className} z-50 flex items-center justify-center !right-0 md:!-right-12 !top-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-400 hover:bg-yellow-500 text-black shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border-4 border-black transition-all duration-200 focus:outline-none hover:scale-110`
+        `${className} z-30 flex items-center justify-center !right-0 md:!-right-12 !top-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-400 hover:bg-yellow-500 text-black shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border-4 border-black transition-all duration-200 focus:outline-none hover:scale-110`
       }
       style={{ ...style, display: 'block' }}
       onClick={onClick}
