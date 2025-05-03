@@ -325,12 +325,12 @@ export default function Projects() {
             <Slider {...sliderSettings} className="cursor-grab active:cursor-grabbing">
               {slide.projects.map((project) => (
                 <div key={project.id} className="px-2">
-                  <div className="bg-[#1e2b4d] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                  <div className="bg-[#1e2b4d] rounded-3xl overflow-hidden shadow-xl hover:shadow-yellow-400/40 hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300">
                     <div className="w-full h-48 overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                       />
                     </div>
                     <div className="p-6">
@@ -342,7 +342,7 @@ export default function Projects() {
                           {project.technologies.map((tech, index) => (
                             <span
                               key={index}
-                              className="bg-[#2a3760] px-3 py-1 rounded-md text-sm"
+                              className="bg-[#2a3760] px-3 py-1 rounded-md text-sm text-white"
                             >
                               {tech}
                             </span>
@@ -354,7 +354,7 @@ export default function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`py-2 px-3 rounded text-center ${project.isPrivate ? 'bg-gray-600 opacity-70' : 'bg-gray-700 hover:bg-gray-600'}`}
+                          className={`py-2 px-3 rounded-lg text-center font-semibold shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:bg-yellow-400 hover:text-[#1a2241] ${project.isPrivate ? 'bg-gray-600 opacity-70 cursor-not-allowed' : 'bg-gray-700 hover:bg-yellow-400 hover:text-[#1a2241]'}`}
                         >
                           {project.isPrivate ? 'Code privé' : 'Voir le code'}
                         </a>
@@ -362,7 +362,7 @@ export default function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] font-bold py-2 px-3 rounded text-center"
+                          className="bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] font-bold py-2 px-3 rounded-lg text-center shadow-md transition-all duration-300 transform hover:-translate-y-1"
                         >
                           Voir le site
                         </a>
