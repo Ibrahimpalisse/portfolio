@@ -1,27 +1,57 @@
 import React, { useState } from 'react';
-import { FaGraduationCap, FaBook, FaPalette, FaPhone } from "react-icons/fa";
+import { FaGraduationCap, FaBook, FaPalette, FaPhone, FaEnvelope, FaSchool, FaUserGraduate, FaStar, FaBriefcase, FaLaptopCode, FaMobileAlt } from "react-icons/fa";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
 const sections = [
   {
+    title: "Expérience Professionnelle",
+    icon: <FaBriefcase className="text-3xl text-orange-400 bg-[#232e4a] rounded-xl p-2" />,
+    content: (
+      <div className="text-gray-300 mt-4 space-y-2">
+        <div className="flex items-center gap-2"><FaLaptopCode className="text-yellow-400" /> Stage dans le numérique à l'École de la Plateforme <span className="text-xs text-gray-400">1 mois, 2024</span></div>
+        <div className="flex items-center gap-2"><FaMobileAlt className="text-blue-400" /> Mission développeur web & mobile chez Idée Intérim <span className="text-xs text-gray-400">2024-2025</span></div>
+      </div>
+    )
+  },
+  {
     title: "Éducation",
-    icon: <FaGraduationCap className="text-3xl text-purple-400 bg-[#232e4a] rounded-xl p-2" />,
-    content: <div className="text-gray-300 mt-4">Détail de l'éducation...</div>
+    icon: <FaSchool className="text-3xl text-blue-400 bg-[#232e4a] rounded-xl p-2" />,
+    content: (
+      <div className="text-gray-300 mt-4 space-y-2">
+        <div className="flex items-center gap-2"><FaUserGraduate className="text-yellow-400" /> Ecole privée Lycée Marrakech Maroc <span className="text-xs text-gray-400">2021-2023</span></div>
+      </div>
+    )
   },
   {
     title: "Formations",
-    icon: <FaBook className="text-3xl text-blue-400 bg-[#232e4a] rounded-xl p-2" />,
-    content: <div className="text-gray-300 mt-4">Détail des formations...</div>
+    icon: <FaBook className="text-3xl text-green-400 bg-[#232e4a] rounded-xl p-2" />,
+    content: (
+      <div className="text-gray-300 mt-4 space-y-2">
+        <div className="flex items-center gap-2"><FaStar className="text-pink-400" /> CIERES Pic Axe 2 (Validation projet pro) <span className="text-xs text-gray-400">2023-2024, Marseille</span></div>
+        <div className="flex items-center gap-2"><FaStar className="text-yellow-400" /> Ecole de la Deuxième Chance (Remise à niveau, construction projet pro) <span className="text-xs text-gray-400">2024</span></div>
+      </div>
+    )
   },
   {
     title: "Intérêts et Loisirs",
     icon: <FaPalette className="text-3xl text-pink-400 bg-[#232e4a] rounded-xl p-2" />,
-    content: <div className="text-gray-300 mt-4">Détail des intérêts et loisirs...</div>
+    content: (
+      <div className="text-gray-300 mt-4 space-y-2">
+        <div className="flex items-center gap-2"><FaStar className="text-yellow-400" /> Les manhua (manga chinois)</div>
+        <div className="flex items-center gap-2"><FaStar className="text-blue-400" /> Les manhwa (manga coréen)</div>
+        <div className="flex items-center gap-2"><FaStar className="text-green-400" /> Lire des light novels (xianxia)</div>
+      </div>
+    )
   },
   {
     title: "Contact",
-    icon: <FaPhone className="text-3xl text-pink-500 bg-[#232e4a] rounded-xl p-2" />,
-    content: <div className="text-gray-300 mt-4">Détail du contact...</div>
+    icon: <FaPhone className="text-3xl text-yellow-400 bg-[#232e4a] rounded-xl p-2" />,
+    content: (
+      <div className="text-gray-300 mt-4 space-y-2">
+        <div className="flex items-center gap-2"><FaPhone className="text-pink-400" /> 07.63.88.37.20</div>
+        <div className="flex items-center gap-2"><FaEnvelope className="text-yellow-400" /> ibrahim.vignes@gmail.com</div>
+      </div>
+    )
   },
 ];
 
@@ -45,7 +75,7 @@ export default function MonCV() {
           {sections.map((section, idx) => (
             <div
               key={section.title}
-              className="bg-[#22304a] rounded-2xl shadow-md px-6 py-5"
+              className="bg-[#22304a]/80 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-yellow-400/40 px-6 py-5 transition-all duration-300"
             >
               <button
                 className="flex items-center justify-between w-full focus:outline-none"
@@ -53,17 +83,21 @@ export default function MonCV() {
               >
                 <div className="flex items-center gap-4">
                   {section.icon}
-                  <span className="text-white text-lg font-semibold">{section.title}</span>
+                  <span className="text-white text-lg font-semibold tracking-wide drop-shadow">{section.title}</span>
                 </div>
                 <span className={`w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-purple-500 shadow-md transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`}>
                   <MdKeyboardArrowUp className="text-white text-2xl" />
                 </span>
               </button>
-              {openIndex === idx && (
-                <div>
-                  {section.content}
-                </div>
-              )}
+              <div
+                className={`transition-all duration-500 overflow-hidden ${openIndex === idx ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}
+              >
+                {openIndex === idx && (
+                  <div>
+                    {section.content}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>

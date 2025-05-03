@@ -30,6 +30,11 @@ const Banner = ({ name, title }) => {
   const handleNavLinkClick = (id) => {
     setActivePage(id);
     setMobileMenuOpen(false);
+    // Scroll smooth vers la section
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -105,9 +110,9 @@ const Banner = ({ name, title }) => {
                 className={`pl-4 mb-6 py-2 rounded-r-md transition-all ${activePage === item.id ? 'border-l-4 border-yellow-400 bg-blue-900/40' : 'hover:bg-blue-900/30 hover:border-l-4 hover:border-yellow-200/50'}`}
               >
                 <a 
-                  href={item.href} 
-                  className="flex items-center text-white hover:text-yellow-200 transition"
-                  onClick={() => setActivePage(item.id)}
+                  href={item.href}
+                  className="flex items-center text-white hover:text-yellow-200 transition cursor-pointer"
+                  onClick={e => { e.preventDefault(); handleNavLinkClick(item.id); }}
                 >
                   <span className="mr-3">{item.icon}</span>
                   <span className="text-lg drop-shadow-md">{item.label}</span>
@@ -180,7 +185,7 @@ const Banner = ({ name, title }) => {
                   <a 
                     href={item.href}
                     className={`flex items-center text-white hover:text-yellow-200 pl-4 ${activePage === item.id ? 'font-bold' : ''}`}
-                    onClick={() => handleNavLinkClick(item.id)}
+                    onClick={e => { e.preventDefault(); handleNavLinkClick(item.id); }}
                   >
                     <span className="text-yellow-400 mr-4 text-xl">{item.icon}</span>
                     <span className="text-lg">{item.label}</span>
