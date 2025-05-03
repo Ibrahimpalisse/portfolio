@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import './App.css'
 import Home from './components/Home'
 import Projects from './components/Projects'
+import Tools from './components/Tools'
 
 function App() {
   const projectsRef = useRef(null);
@@ -20,6 +21,8 @@ function App() {
       <div ref={projectsRef}>
         <Projects />
       </div>
+      {/* Section outils & environnements */}
+      <Tools />
     </div>
   )
 }

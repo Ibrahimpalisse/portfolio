@@ -14,10 +14,6 @@ const Home = ({ scrollToProjects }) => {
         &lt;/&gt;
       </motion.div>
       
-      {/* Cercles/dots décoratifs */}
-      <div className="absolute left-[5%] top-[20%] w-32 h-32 rounded-full bg-gradient-to-tr from-blue-400 to-purple-500 opacity-10 blur-md"></div>
-      <div className="absolute left-[15%] bottom-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-indigo-500 to-blue-700 opacity-10 blur-md"></div>
-      
       {/* Points lumineux (étoiles) */}
       <div className="absolute top-20 right-[20%] w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
       <div className="absolute top-40 right-[5%] w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
@@ -52,9 +48,6 @@ const Home = ({ scrollToProjects }) => {
         </div>
       </div>
 
-      {/* Gradient d'arrière-plan */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-[#0a1020] to-transparent opacity-30 pointer-events-none"></div>
-      
       {/* Flèche de défilement vers le bas */}
       <div 
         onClick={scrollToProjects}
