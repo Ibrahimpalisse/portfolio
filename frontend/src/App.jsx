@@ -3,6 +3,8 @@ import './App.css'
 import Home from './components/Home'
 import Projects from './components/Projects'
 import Tools from './components/Tools'
+import MonCV from './components/MonCV'
+import Contact from './components/Contact'
 
 function App() {
   const projectsRef = useRef(null);
@@ -23,6 +25,10 @@ function App() {
       </div>
       {/* Section outils & environnements */}
       <Tools />
+      {/* Section Mon CV */}
+      <MonCV />
+      {/* Section Contact */}
+      <Contact />
     </div>
   )
 }
