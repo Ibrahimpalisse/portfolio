@@ -46,14 +46,14 @@ const Section = ({ title, items }) => (
 
 const Tools = () => {
   return (
-    <section className="min-h-screen w-full bg-[#1a2241] text-white py-16">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 mb-12">
+    <section id="competences" className="min-h-screen w-full bg-[#1a2241] text-white py-16 md:pl-64 overflow-hidden">
+      <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h3 className="text-4xl font-bold mb-2 flex items-center gap-2">
           <span className="text-2xl">📝</span> Mes Compétences
         </h3>
         <span className="block w-24 h-1.5 bg-yellow-400 mt-2 mb-4"></span>
       </div>
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+      <div className="w-full px-4 md:px-8 lg:px-16 max-w-full md:max-w-[calc(100%-2rem)]">
         <Section title="Front-end" items={frontend} />
         <Section title="Back-end" items={backend} />
         <Section title="Environnements & Outils" items={tools} />

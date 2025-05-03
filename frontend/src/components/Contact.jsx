@@ -3,14 +3,14 @@ import { FaGithub, FaLinkedin, FaPhone, FaEnvelope } from 'react-icons/fa';
 
 export default function Contact() {
   return (
-    <section className="min-h-screen w-full bg-[#1a2241] text-white py-16">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 mb-12">
+    <section id="contact" className="min-h-screen w-full bg-[#1a2241] text-white py-16 md:pl-64 overflow-hidden">
+      <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
           <span className="text-2xl">📬</span> Contact
         </h2>
         <span className="block w-24 h-1.5 bg-yellow-400 mt-2 mb-4"></span>
       </div>
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row gap-12">
+      <div className="w-full px-4 md:px-8 lg:px-16 flex flex-col md:flex-row gap-12 max-w-full md:max-w-[calc(100%-2rem)]">
         {/* Formulaire */}
         <form className="flex-1 bg-[#22304a] rounded-2xl shadow-md p-8 flex flex-col gap-6 max-w-xl mx-auto md:mx-0">
           <div>

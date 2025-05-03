@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Home = ({ scrollToProjects }) => {
   return (
-    <div className="min-h-screen w-full bg-[#1a2241] text-white relative overflow-hidden">
+    <div id="accueil" className="min-h-screen w-full text-white relative overflow-hidden md:pl-64">
       {/* Icône < /> animée, blanche et flottante */}
       <motion.div
         className="absolute right-2 top-1/3 md:right-[10%] md:top-1/4 text-white text-6xl md:text-9xl opacity-80 z-0 select-none pointer-events-none"
@@ -21,7 +21,7 @@ const Home = ({ scrollToProjects }) => {
       <div className="absolute top-80 right-[8%] w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
       
       {/* Contenu principal */}
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 pt-24 md:pt-32 max-w-7xl relative z-10">
+      <div className="w-full px-4 md:px-8 lg:px-16 pt-24 md:pt-32 relative z-10 max-w-full md:max-w-[calc(100%-2rem)]">
         <div className="max-w-3xl">
           <h2 className="text-3xl font-light mb-4">
             Bonjour,

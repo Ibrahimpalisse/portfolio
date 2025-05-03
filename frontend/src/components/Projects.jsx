@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const projects = [
+  // 10 projets fullstack
   {
     id: 1,
     title: "Dashboard Analytics",
@@ -40,6 +41,84 @@ const projects = [
   },
   {
     id: 4,
+    title: "API REST Node",
+    description: "API REST sécurisée pour gestion de données.",
+    technologies: ["Node.js", "Express", "MongoDB"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/api-rest-node",
+    liveUrl: "https://api-rest-node-demo.com",
+    type: "fullstack"
+  },
+  {
+    id: 5,
+    title: "App de réservation",
+    description: "Application de réservation en ligne avec calendrier.",
+    technologies: ["React", "Node.js", "MySQL"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/reservation-app",
+    liveUrl: "https://reservation-app-demo.com",
+    type: "fullstack"
+  },
+  {
+    id: 6,
+    title: "Gestion de stock",
+    description: "Application de gestion de stock pour PME.",
+    technologies: ["React", "Express", "MongoDB"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/stock-management",
+    liveUrl: "https://stock-management-demo.com",
+    type: "fullstack"
+  },
+  {
+    id: 7,
+    title: "Blog Fullstack",
+    description: "Blog avec authentification et gestion des articles.",
+    technologies: ["React", "Node.js", "MongoDB"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/fullstack-blog",
+    liveUrl: "https://fullstack-blog-demo.com",
+    type: "fullstack"
+  },
+  {
+    id: 8,
+    title: "App météo",
+    description: "Application météo avec API externe.",
+    technologies: ["React", "Node.js", "API"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/weather-app",
+    liveUrl: "https://weather-app-demo.com",
+    type: "fullstack"
+  },
+  {
+    id: 9,
+    title: "Gestion de tâches",
+    description: "To-do list collaborative avec notifications.",
+    technologies: ["React", "Node.js", "Socket.io"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/todo-collab",
+    liveUrl: "https://todo-collab-demo.com",
+    type: "fullstack"
+  },
+  {
+    id: 10,
+    title: "Plateforme e-learning",
+    description: "Plateforme de cours en ligne avec vidéos et quiz.",
+    technologies: ["React", "Node.js", "MongoDB"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/elearning-platform",
+    liveUrl: "https://elearning-platform-demo.com",
+    type: "fullstack"
+  },
+  // 10 projets statiques
+  {
+    id: 11,
     title: "Portfolio HTML/CSS",
     description: "Site portfolio statique réalisé en HTML et CSS.",
     technologies: ["HTML", "CSS"],
@@ -50,7 +129,7 @@ const projects = [
     type: "statique"
   },
   {
-    id: 5,
+    id: 12,
     title: "Landing Page JS",
     description: "Landing page statique avec animations JavaScript.",
     technologies: ["HTML", "CSS", "JavaScript"],
@@ -58,6 +137,94 @@ const projects = [
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1374&auto=format&fit=crop",
     githubUrl: "https://github.com/user/landing-page-js",
     liveUrl: "https://landing-page-js-demo.com",
+    type: "statique"
+  },
+  {
+    id: 13,
+    title: "Site Vitrine",
+    description: "Site vitrine pour entreprise locale.",
+    technologies: ["HTML", "CSS"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/site-vitrine",
+    liveUrl: "https://site-vitrine-demo.com",
+    type: "statique"
+  },
+  {
+    id: 14,
+    title: "Page événement",
+    description: "Page d'inscription à un événement.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/event-page",
+    liveUrl: "https://event-page-demo.com",
+    type: "statique"
+  },
+  {
+    id: 15,
+    title: "Mini Portfolio JS",
+    description: "Mini portfolio avec effets de scroll.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/mini-portfolio-js",
+    liveUrl: "https://mini-portfolio-js-demo.com",
+    type: "statique"
+  },
+  {
+    id: 16,
+    title: "Page Coming Soon",
+    description: "Page d'attente avec compte à rebours.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/coming-soon",
+    liveUrl: "https://coming-soon-demo.com",
+    type: "statique"
+  },
+  {
+    id: 17,
+    title: "Page de contact",
+    description: "Formulaire de contact simple.",
+    technologies: ["HTML", "CSS"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/contact-page",
+    liveUrl: "https://contact-page-demo.com",
+    type: "statique"
+  },
+  {
+    id: 18,
+    title: "Page FAQ",
+    description: "Page FAQ statique avec accordéon.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/faq-page",
+    liveUrl: "https://faq-page-demo.com",
+    type: "statique"
+  },
+  {
+    id: 19,
+    title: "Page galerie",
+    description: "Galerie d'images statique.",
+    technologies: ["HTML", "CSS"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/gallery-page",
+    liveUrl: "https://gallery-page-demo.com",
+    type: "statique"
+  },
+  {
+    id: 20,
+    title: "Page simple",
+    description: "Page statique simple pour test.",
+    technologies: ["HTML", "CSS"],
+    isPrivate: false,
+    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=1374&auto=format&fit=crop",
+    githubUrl: "https://github.com/user/simple-page",
+    liveUrl: "https://simple-page-demo.com",
     type: "statique"
   }
 ];
@@ -81,14 +248,14 @@ function PrevArrow(props) {
   return (
     <button
       className={
-        `${className} z-10 flex items-center justify-center !left-0 md:!-left-6 !top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] shadow-lg transition-all duration-200 focus:outline-none`
+        `${className} z-50 flex items-center justify-center !left-0 md:!-left-12 !top-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-400 hover:bg-yellow-500 text-black shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border-4 border-black transition-all duration-200 focus:outline-none hover:scale-110`
       }
       style={{ ...style, display: 'block' }}
       onClick={onClick}
       aria-label="Précédent"
       type="button"
     >
-      <FaChevronLeft className="text-2xl md:text-3xl" />
+      <FaChevronLeft className="text-4xl md:text-5xl" />
     </button>
   );
 }
@@ -99,14 +266,14 @@ function NextArrow(props) {
   return (
     <button
       className={
-        `${className} z-10 flex items-center justify-center !right-0 md:!-right-6 !top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] shadow-lg transition-all duration-200 focus:outline-none`
+        `${className} z-50 flex items-center justify-center !right-0 md:!-right-12 !top-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-400 hover:bg-yellow-500 text-black shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] border-4 border-black transition-all duration-200 focus:outline-none hover:scale-110`
       }
       style={{ ...style, display: 'block' }}
       onClick={onClick}
       aria-label="Suivant"
       type="button"
     >
-      <FaChevronRight className="text-2xl md:text-3xl" />
+      <FaChevronRight className="text-4xl md:text-5xl" />
     </button>
   );
 }
@@ -115,9 +282,13 @@ const sliderSettings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
+  slidesToShow: 3,
   slidesToScroll: 1,
   arrows: true,
+  autoplay: true,
+  autoplaySpeed: 3500,
+  swipe: true,
+  touchMove: true,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
   responsive: [
@@ -140,18 +311,18 @@ const sliderSettings = {
 
 export default function Projects() {
   return (
-    <div id="projects" className="min-h-screen w-full bg-[#1a2241] text-white py-16">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 mb-12">
+    <div id="projets" className="min-h-screen w-full text-white py-16 md:pl-64 bg-[#1a2241] overflow-hidden">
+      <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
           <span className="text-2xl">💻</span> Mes Projets
         </h2>
         <span className="block w-24 h-1.5 bg-yellow-400 mt-2 mb-4"></span>
       </div>
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 flex flex-col gap-16">
+      <div className="w-full px-4 md:px-20 flex flex-col gap-16 max-w-full md:max-w-[calc(100%-2rem)]">
         {slides.map((slide) => (
-          <div key={slide.key}>
+          <div key={slide.key} className="w-full">
             <h3 className="text-3xl font-bold mb-8 text-white">{slide.label}</h3>
-            <Slider {...sliderSettings}>
+            <Slider {...sliderSettings} className="cursor-grab active:cursor-grabbing">
               {slide.projects.map((project) => (
                 <div key={project.id} className="px-2">
                   <div className="bg-[#1e2b4d] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
