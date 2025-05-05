@@ -47,7 +47,6 @@ export default function Contact() {
     )
     .then((result) => {
       toast.success('Message envoyé avec succès!', {
-        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -60,7 +59,6 @@ export default function Contact() {
     })
     .catch((error) => {
       toast.error('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.', {
-        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -75,7 +73,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="min-h-screen w-full bg-[#1a2241] text-white py-16 md:pl-64 overflow-hidden">
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
       <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
           <span className="text-2xl">📬</span> Contact
