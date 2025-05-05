@@ -1,62 +1,81 @@
-import React, { useState, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaPhone, FaEnvelope } from 'react-icons/fa';
+import React, { useRef, useState } from 'react';
+import { FaGithub, FaLinkedin, FaPhone, FaEnvelope, FaCheckCircle } from 'react-icons/fa';
+import { ImCross } from 'react-icons/im';
 import emailjs from '@emailjs/browser';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactSchema } from '../services/validationService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
   const form = useRef();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [status, setStatus] = useState({
-    submitted: false,
-    success: false,
-    message: ''
-  });
   const [loading, setLoading] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  
+  // Configuration de React Hook Form avec Zod
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors, dirtyFields, isValid }, 
+    reset 
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    mode: 'onChange', // validation en temps réel pendant que l'utilisateur tape
+  });
+  
+  // Détermine si un champ doit afficher l'indicateur de validation
+  const shouldShowValidation = (fieldName) => {
+    return dirtyFields[fieldName] && !errors[fieldName];
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Fonction pour envoyer le formulaire
+  const onSubmit = (data) => {
+    // Protection anti-spam : vérification du honeypot
+    if (data.website) {
+      // Si le champ caché est rempli, c'est probablement un bot
+      console.log("Tentative de spam détectée");
+      return;
+    }
+    
     setLoading(true);
-
-    // Remplace ces ID par ceux de ton compte EmailJS
+    
     emailjs.sendForm(
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
       import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       form.current,
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
-      .then((result) => {
-        setStatus({
-          submitted: true,
-          success: true,
-          message: 'Message envoyé avec succès!'
-        });
-        setFormData({ name: '', email: '', message: '' });
-        setLoading(false);
-      })
-      .catch((error) => {
-        setStatus({
-          submitted: true,
-          success: false,
-          message: 'Une erreur est survenue. Veuillez réessayer.'
-        });
-        setLoading(false);
-        console.error('Erreur EmailJS:', error);
+    .then((result) => {
+      toast.success('Message envoyé avec succès!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
       });
+      reset(); // Réinitialiser le formulaire
+      setLoading(false);
+    })
+    .catch((error) => {
+      toast.error('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      });
+      setLoading(false);
+      console.error('Erreur EmailJS:', error);
+    });
   };
 
   return (
     <section id="contact" className="min-h-screen w-full bg-[#1a2241] text-white py-16 md:pl-64 overflow-hidden">
+      <ToastContainer />
       <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
           <span className="text-2xl">📬</span> Contact
@@ -66,58 +85,95 @@ export default function Contact() {
       <div className="w-full px-4 md:px-8 lg:px-16 flex flex-col md:flex-row gap-12 max-w-full md:max-w-[calc(100%-2rem)]">
         {/* Formulaire */}
         <form 
-          ref={form}
-          onSubmit={handleSubmit} 
+          ref={form} 
+          onSubmit={handleSubmit(onSubmit)}
           className="flex-1 bg-[#22304a]/80 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-yellow-400/40 p-8 flex flex-col gap-6 max-w-xl mx-auto md:mx-0 transition-all duration-300"
         >
-          {status.submitted && (
-            <div className={`p-4 rounded-xl ${status.success ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}>
-              {status.message}
-            </div>
-          )}
+          {/* Champ Nom */}
           <div>
             <label className="block text-sm font-semibold mb-2">Nom</label>
-            <input 
-              type="text" 
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full rounded-xl bg-[#1a2241]/80 text-white p-3 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300" 
-              placeholder="Votre nom"
-              required 
-            />
+            <div className="relative">
+              <input 
+                type="text" 
+                {...register('name')}
+                className={`w-full rounded-xl bg-[#1a2241]/80 text-white p-3 pr-10 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300 ${errors.name ? 'border border-red-500' : shouldShowValidation('name') ? 'border border-green-500' : ''}`}
+                placeholder="Votre nom"
+              />
+              {shouldShowValidation('name') && (
+                <FaCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500" />
+              )}
+              {errors.name && (
+                <ImCross className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-xs" />
+              )}
+            </div>
+            {errors.name && (
+              <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>
+            )}
           </div>
+          
+          {/* Champ Email */}
           <div>
             <label className="block text-sm font-semibold mb-2">Email</label>
-            <input 
-              type="email"
-              name="email" // EmailJS utilise ce nom pour la variable {{email}}
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full rounded-xl bg-[#1a2241]/80 text-white p-3 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300" 
-              placeholder="Votre email"
-              required 
-            />
+            <div className="relative">
+              <input 
+                type="email"
+                {...register('email')}
+                className={`w-full rounded-xl bg-[#1a2241]/80 text-white p-3 pr-10 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300 ${errors.email ? 'border border-red-500' : shouldShowValidation('email') ? 'border border-green-500' : ''}`}
+                placeholder="Votre email"
+              />
+              {shouldShowValidation('email') && (
+                <FaCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500" />
+              )}
+              {errors.email && (
+                <ImCross className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 text-xs" />
+              )}
+            </div>
+            {errors.email && (
+              <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
+            )}
           </div>
+          
+          {/* Champ Message */}
           <div>
             <label className="block text-sm font-semibold mb-2">Message</label>
-            <textarea 
-              name="message" // EmailJS utilise ce nom pour la variable {{message}}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full rounded-xl bg-[#1a2241]/80 text-white p-3 h-32 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300" 
-              placeholder="Votre message"
-              required 
+            <div className="relative">
+              <textarea 
+                {...register('message')}
+                className={`w-full rounded-xl bg-[#1a2241]/80 text-white p-3 pr-10 h-32 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300 ${errors.message ? 'border border-red-500' : shouldShowValidation('message') ? 'border border-green-500' : ''}`}
+                placeholder="Votre message"
+              />
+              {shouldShowValidation('message') && (
+                <FaCheckCircle className="absolute right-3 top-4 text-green-500" />
+              )}
+              {errors.message && (
+                <ImCross className="absolute right-3 top-4 text-red-500 text-xs" />
+              )}
+            </div>
+            {errors.message && (
+              <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>
+            )}
+          </div>
+          
+          {/* Honeypot anti-spam (champ caché) */}
+          <div aria-hidden="true" className="hidden">
+            <input
+              type="text"
+              {...register('website')}
+              tabIndex="-1"
+              autoComplete="off"
+              style={{ display: 'none' }}
             />
           </div>
+          
           <button 
             type="submit" 
-            disabled={loading}
-            className={`bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300 focus:ring-4 focus:ring-yellow-400/60 transform hover:-translate-y-1 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+            disabled={loading || !isValid}
+            className={`bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300 focus:ring-4 focus:ring-yellow-400/60 transform hover:-translate-y-1 ${(loading || !isValid) ? 'opacity-70 cursor-not-allowed' : ''}`}
           >
             {loading ? 'Envoi en cours...' : 'Envoyer'}
           </button>
         </form>
+        
         {/* Cadre infos contact */}
         <div className="flex-1 bg-[#22304a]/80 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-yellow-400/40 p-8 flex flex-col items-center justify-center gap-6 min-w-[280px] max-w-xl mx-auto md:mx-0 transition-all duration-300">
           <a href="https://github.com/ton-github" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 text-3xl flex items-center gap-3 transition-all duration-200 hover:scale-105">
