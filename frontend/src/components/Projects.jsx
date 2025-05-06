@@ -113,7 +113,7 @@ const sliderSettings = {
 
 export default function Projects() {
   return (
-    <div id="projets" className="min-h-screen w-full text-white py-16 md:pl-64 bg-[#1a2241] overflow-hidden">
+    <div className="min-h-screen w-full text-white py-16 md:pl-64 bg-[#1a2241] overflow-hidden">
       <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
           <span className="text-2xl">💻</span> Mes Projets

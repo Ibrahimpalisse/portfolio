@@ -9,6 +9,9 @@ import Banner from './components/Banner'
 
 function App() {
   const projectsRef = useRef(null);
+  const competencesRef = useRef(null);
+  const cvRef = useRef(null);
+  const contactRef = useRef(null);
 
   // Fonction pour faire défiler jusqu'à la section Projets
   const scrollToProjects = () => {
@@ -16,23 +19,33 @@ function App() {
   };
 
   return (
-    <div className="flex w-full bg-[#1a2241] overflow-x-hidden">
-      {/* Banner latéral ou menu mobile */}
-      <Banner name="Vignes Ibrahim" title="Développeur Web" />
+    <div className="flex w-full bg-[#1a2241] overflow-x-hidden relative">
+      {/* Banner latéral ou menu mobile - en position absolue avec un z-index élevé */}
+      <div className="z-50 relative">
+        <Banner name="Vignes Ibrahim" title="Développeur Web" />
+      </div>
       {/* Contenu principal */}
       <main className="flex-1 flex flex-col w-full overflow-x-hidden">
         {/* Section d'accueil avec fonction pour défiler vers les projets */}
-        <Home scrollToProjects={scrollToProjects} />
+        <div id="accueil">
+          <Home scrollToProjects={scrollToProjects} />
+        </div>
         {/* Section des projets avec référence pour le défilement */}
-        <div ref={projectsRef} className="w-full">
+        <div id="projets" ref={projectsRef}>
           <Projects />
         </div>
         {/* Section outils & environnements */}
-        <Tools />
+        <div id="competences" ref={competencesRef}>
+          <Tools />
+        </div>
         {/* Section Mon CV */}
-        <MonCV />
+        <div id="cv" ref={cvRef}>
+          <MonCV />
+        </div>
         {/* Section Contact */}
-        <Contact />
+        <div id="contact" ref={contactRef}>
+          <Contact />
+        </div>
       </main>
     </div>
   )

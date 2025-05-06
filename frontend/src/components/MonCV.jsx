@@ -63,7 +63,7 @@ export default function MonCV() {
   };
 
   return (
-    <section id="cv" className="min-h-screen w-full bg-[#1a2241] text-white py-16 md:pl-64 overflow-hidden">
+    <section className="min-h-screen w-full bg-[#1a2241] text-white py-16 md:pl-64 overflow-hidden">
       <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
           <span className="text-2xl">🎓</span> Mon CV

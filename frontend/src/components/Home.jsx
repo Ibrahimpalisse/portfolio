@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Home = ({ scrollToProjects }) => {
   return (
-    <div id="accueil" className="min-h-screen w-full text-white relative overflow-hidden md:pl-64">
+    <div className="min-h-screen w-full text-white relative overflow-hidden md:pl-64">
       {/* Icône < /> animée, blanche et flottante */}
       <motion.div
         className="absolute right-2 top-1/3 md:right-[10%] md:top-1/4 text-white text-6xl md:text-9xl opacity-80 z-0 select-none pointer-events-none"
@@ -14,11 +14,11 @@ const Home = ({ scrollToProjects }) => {
         &lt;/&gt;
       </motion.div>
       
-      {/* Points lumineux (étoiles) */}
-      <div className="absolute top-20 right-[20%] w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
-      <div className="absolute top-40 right-[5%] w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
-      <div className="absolute top-60 right-[15%] w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
-      <div className="absolute top-80 right-[8%] w-2 h-2 bg-blue-300 rounded-full animate-pulse"></div>
+      {/* Points lumineux (étoiles) - Assurez-vous qu'ils n'interfèrent pas avec les clics */}
+      <div className="absolute top-20 right-[20%] w-2 h-2 bg-blue-300 rounded-full animate-pulse pointer-events-none"></div>
+      <div className="absolute top-40 right-[5%] w-2 h-2 bg-blue-300 rounded-full animate-pulse pointer-events-none"></div>
+      <div className="absolute top-60 right-[15%] w-2 h-2 bg-blue-300 rounded-full animate-pulse pointer-events-none"></div>
+      <div className="absolute top-80 right-[8%] w-2 h-2 bg-blue-300 rounded-full animate-pulse pointer-events-none"></div>
       
       {/* Contenu principal */}
       <div className="w-full px-4 md:px-8 lg:px-16 pt-24 md:pt-32 relative z-10 max-w-full md:max-w-[calc(100%-2rem)]">

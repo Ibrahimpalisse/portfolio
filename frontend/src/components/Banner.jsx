@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // Remplacer ce chemin par le bon si imagePort.jpg existe
-import imagePort from '../../public/image/imagePort.jpg';
+import imagePort from '../../public/icon/imagePort.jpg';
 
 const Banner = ({ name, title }) => {
   const [activePage, setActivePage] = useState('accueil');
@@ -30,10 +30,16 @@ const Banner = ({ name, title }) => {
   const handleNavLinkClick = (id) => {
     setActivePage(id);
     setMobileMenuOpen(false);
-    // Scroll smooth vers la section
+    
+    // Trouver l'élément cible
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      // Calculer la position avec un offset pour éviter les problèmes de navigation
+      const yOffset = -80; // Ajuster cette valeur si nécessaire
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
+      // Scroll avec offset
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
@@ -83,7 +89,7 @@ const Banner = ({ name, title }) => {
   return (
     <>
       {/* Version bureau - barre latérale */}
-      <div className="fixed top-0 left-0 h-full w-64 flex-col overflow-hidden hidden md:flex border-r-0" style={{
+      <div className="fixed top-0 left-0 h-full w-64 flex-col overflow-hidden hidden md:flex border-r-0 z-50" style={{
         backgroundImage: `url(${imagePort})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -111,7 +117,7 @@ const Banner = ({ name, title }) => {
               >
                 <a 
                   href={item.href}
-                  className="flex items-center text-white hover:text-yellow-200 transition cursor-pointer"
+                  className="flex items-center text-white hover:text-yellow-200 transition cursor-pointer pointer-events-auto"
                   onClick={e => { e.preventDefault(); handleNavLinkClick(item.id); }}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -132,7 +138,7 @@ const Banner = ({ name, title }) => {
         </div>
       </div>
       {/* Version mobile - uniquement l'icône de menu à gauche */}
-      <div className="md:hidden">
+      <div className="md:hidden z-50">
         {/* Bouton hamburger fixe en haut à gauche, style carré, fond bleu nuit, coins arrondis, ombre, barres fines et bien centrées */}
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

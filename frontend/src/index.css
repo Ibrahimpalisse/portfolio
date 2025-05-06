@@ -71,3 +71,9 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* Assure que la barre latérale est toujours au-dessus */
+.fixed.left-0.z-50 {
+  z-index: 1000;
+  pointer-events: auto !important;
+}
