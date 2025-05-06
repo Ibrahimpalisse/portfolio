@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaGitAlt, FaDocker, FaFigma, FaGithub, FaPhp, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaDatabase } from 'react-icons/fa';
 import { SiExpress, SiTailwindcss } from 'react-icons/si';
+import { useTranslation } from 'react-i18next';
 
 const frontend = [
   { name: 'HTML', icon: <FaHtml5 className="text-orange-600 text-5xl mx-auto" /> },
@@ -45,18 +46,19 @@ const Section = ({ title, items }) => (
 );
 
 const Tools = () => {
+  const { t } = useTranslation();
   return (
     <section className="min-h-screen w-full bg-[#1a2241] text-white py-16 md:pl-64 overflow-hidden">
       <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h3 className="text-4xl font-bold mb-2 flex items-center gap-2">
-          <span className="text-2xl">📝</span> Mes Compétences
+          <span className="text-2xl">📝</span> {t('skills.title')}
         </h3>
         <span className="block w-24 h-1.5 bg-yellow-400 mt-2 mb-4"></span>
       </div>
       <div className="w-full px-4 md:px-8 lg:px-16 max-w-full md:max-w-[calc(100%-2rem)]">
-        <Section title="Front-end" items={frontend} />
-        <Section title="Back-end" items={backend} />
-        <Section title="Environnements & Outils" items={tools} />
+        <Section title={t('skills.frontend')} items={frontend} />
+        <Section title={t('skills.backend')} items={backend} />
+        <Section title={t('skills.tools')} items={tools} />
       </div>
     </section>
   );

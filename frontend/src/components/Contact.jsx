@@ -7,8 +7,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { contactSchema } from '../services/validationService';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
+  const { t } = useTranslation();
   const form = useRef();
   const [loading, setLoading] = useState(false);
   
@@ -46,7 +48,7 @@ export default function Contact() {
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
     .then((result) => {
-      toast.success('Message envoyé avec succès!', {
+      toast.success(t('contact.success'), {
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -58,7 +60,7 @@ export default function Contact() {
       setLoading(false);
     })
     .catch((error) => {
-      toast.error('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.', {
+      toast.error(t('contact.error'), {
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -76,7 +78,7 @@ export default function Contact() {
       <ToastContainer position="bottom-right" />
       <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
-          <span className="text-2xl">📬</span> Contact
+          <span className="text-2xl">📬</span> {t('contact.title')}
         </h2>
         <span className="block w-24 h-1.5 bg-yellow-400 mt-2 mb-4"></span>
       </div>
@@ -89,13 +91,13 @@ export default function Contact() {
         >
           {/* Champ Nom */}
           <div>
-            <label className="block text-sm font-semibold mb-2">Nom</label>
+            <label className="block text-sm font-semibold mb-2">{t('contact.name')}</label>
             <div className="relative">
               <input 
                 type="text" 
                 {...register('name')}
                 className={`w-full rounded-xl bg-[#1a2241]/80 text-white p-3 pr-10 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300 ${errors.name ? 'border border-red-500' : shouldShowValidation('name') ? 'border border-green-500' : ''}`}
-                placeholder="Votre nom"
+                placeholder={t('contact.name')}
               />
               {shouldShowValidation('name') && (
                 <FaCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500" />
@@ -111,13 +113,13 @@ export default function Contact() {
           
           {/* Champ Email */}
           <div>
-            <label className="block text-sm font-semibold mb-2">Email</label>
+            <label className="block text-sm font-semibold mb-2">{t('contact.email')}</label>
             <div className="relative">
               <input 
                 type="email"
                 {...register('email')}
                 className={`w-full rounded-xl bg-[#1a2241]/80 text-white p-3 pr-10 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300 ${errors.email ? 'border border-red-500' : shouldShowValidation('email') ? 'border border-green-500' : ''}`}
-                placeholder="Votre email"
+                placeholder={t('contact.email')}
               />
               {shouldShowValidation('email') && (
                 <FaCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500" />
@@ -133,12 +135,12 @@ export default function Contact() {
           
           {/* Champ Message */}
           <div>
-            <label className="block text-sm font-semibold mb-2">Message</label>
+            <label className="block text-sm font-semibold mb-2">{t('contact.message')}</label>
             <div className="relative">
               <textarea 
                 {...register('message')}
                 className={`w-full rounded-xl bg-[#1a2241]/80 text-white p-3 pr-10 h-32 focus:outline-none focus:ring-4 focus:ring-yellow-400/60 focus:bg-[#232e4a] transition-all duration-300 ${errors.message ? 'border border-red-500' : shouldShowValidation('message') ? 'border border-green-500' : ''}`}
-                placeholder="Votre message"
+                placeholder={t('contact.message')}
               />
               {shouldShowValidation('message') && (
                 <FaCheckCircle className="absolute right-3 top-4 text-green-500" />
@@ -168,7 +170,7 @@ export default function Contact() {
             disabled={loading || !isValid}
             className={`bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-300 focus:ring-4 focus:ring-yellow-400/60 transform hover:-translate-y-1 ${(loading || !isValid) ? 'opacity-70 cursor-not-allowed' : ''}`}
           >
-            {loading ? 'Envoi en cours...' : 'Envoyer'}
+            {loading ? t('contact.sending') : t('contact.send')}
           </button>
         </form>
         

@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useTranslation } from 'react-i18next';
 
 const projects = [
   // 10 projets fullstack
@@ -34,12 +35,12 @@ const projects = [
 const slides = [
   {
     key: 'statique',
-    label: 'Sites Statiques',
+    label: 'projects.static',
     projects: projects.filter(p => p.type === 'statique')
   },
   {
     key: 'fullstack',
-    label: 'Front + Backend',
+    label: 'projects.fullstack',
     projects: projects.filter(p => p.type === 'fullstack')
   }
 ];
@@ -112,18 +113,19 @@ const sliderSettings = {
 };
 
 export default function Projects() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen w-full text-white py-16 md:pl-64 bg-[#1a2241] overflow-hidden">
       <div className="w-full px-4 md:px-8 lg:px-16 mb-12 max-w-full md:max-w-[calc(100%-2rem)]">
         <h2 className="text-4xl font-bold mb-2 flex items-center gap-2">
-          <span className="text-2xl">💻</span> Mes Projets
+          <span className="text-2xl">💻</span> {t('projects.title')}
         </h2>
         <span className="block w-24 h-1.5 bg-yellow-400 mt-2 mb-4"></span>
       </div>
       <div className="w-full px-4 md:px-20 flex flex-col gap-16 max-w-full md:max-w-[calc(100%-2rem)]">
         {slides.map((slide) => (
           <div key={slide.key} className="w-full">
-            <h3 className="text-3xl font-bold mb-8 text-white">{slide.label}</h3>
+            <h3 className="text-3xl font-bold mb-8 text-white">{t(slide.label)}</h3>
             <Slider {...sliderSettings} className="cursor-grab active:cursor-grabbing">
               {slide.projects.map((project) => (
                 <div key={project.id} className="px-2">
@@ -139,7 +141,7 @@ export default function Projects() {
                       <h3 className="text-2xl font-bold text-yellow-400 mb-3">{project.title}</h3>
                       <p className="text-gray-300 mb-5">{project.description}</p>
                       <div className="mb-5">
-                        <h4 className="font-bold text-yellow-400 mb-2">Technologies</h4>
+                        <h4 className="font-bold text-yellow-400 mb-2">{t('projects.technologies')}</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech, index) => (
                             <span
@@ -158,7 +160,7 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className={`py-2 px-3 rounded-lg text-center font-semibold shadow-md transition-all duration-300 transform hover:-translate-y-1 hover:bg-yellow-400 hover:text-[#1a2241] ${project.isPrivate ? 'bg-gray-600 opacity-70 cursor-not-allowed' : 'bg-gray-700 hover:bg-yellow-400 hover:text-[#1a2241]'}`}
                         >
-                          {project.isPrivate ? 'Code privé' : 'Voir le code'}
+                          {project.isPrivate ? t('projects.private_code') : t('projects.see_code')}
                         </a>
                         <a
                           href={project.liveUrl}
@@ -166,7 +168,7 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className="bg-yellow-400 hover:bg-yellow-500 text-[#1a2241] font-bold py-2 px-3 rounded-lg text-center shadow-md transition-all duration-300 transform hover:-translate-y-1"
                         >
-                          Voir le site
+                          {t('projects.see_site')}
                         </a>
                       </div>
                     </div>

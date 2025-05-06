@@ -1,0 +1,55 @@
+{
+  "menu": {
+    "accueil": "Accueil",
+    "projets": "Projets",
+    "competences": "Compétences",
+    "cv": "CV",
+    "contact": "Contact"
+  },
+  "banner": {
+    "download_cv": "Télécharger le CV",
+    "change_language": "Changer de langue",
+    "name": "Vignes Ibrahim",
+    "title": "Développeur Web"
+  },
+  "home": {
+    "hello": "Bonjour,",
+    "iam": "Je suis Vignes Ibrahim",
+    "job": "développeur web",
+    "description": "Passionné par le développement d'applications web modernes et créatives. En tant que développeur full stack, je maîtrise à la fois les technologies front-end et back-end pour créer des expériences utilisateur complètes et performantes."
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "static": "Sites Statiques",
+    "fullstack": "Front + Backend",
+    "see_code": "Voir le code",
+    "private_code": "Code privé",
+    "see_site": "Voir le site",
+    "technologies": "Technologies"
+  },
+  "skills": {
+    "title": "Mes Compétences",
+    "frontend": "Front-end",
+    "backend": "Back-end",
+    "tools": "Environnements & Outils"
+  },
+  "cv": {
+    "title": "Mon CV",
+    "experience": "Expérience Professionnelle",
+    "education": "Éducation",
+    "trainings": "Formations",
+    "interests": "Intérêts et Loisirs",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+    "reply_email": "Email pour répondre"
+  }
+} 

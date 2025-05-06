@@ -1,0 +1,55 @@
+{
+  "menu": {
+    "accueil": "Home",
+    "projets": "Projects",
+    "competences": "Skills",
+    "cv": "Resume",
+    "contact": "Contact"
+  },
+  "banner": {
+    "download_cv": "Download Resume",
+    "change_language": "Change language",
+    "name": "Vignes Ibrahim",
+    "title": "Web Developer"
+  },
+  "home": {
+    "hello": "Hello,",
+    "iam": "I am Vignes Ibrahim",
+    "job": "web developer",
+    "description": "Passionate about developing modern and creative web applications. As a full stack developer, I master both front-end and back-end technologies to create complete and high-performance user experiences."
+  },
+  "projects": {
+    "title": "My Projects",
+    "static": "Static Sites",
+    "fullstack": "Front + Backend",
+    "see_code": "See code",
+    "private_code": "Private code",
+    "see_site": "See site",
+    "technologies": "Technologies"
+  },
+  "skills": {
+    "title": "My Skills",
+    "frontend": "Front-end",
+    "backend": "Back-end",
+    "tools": "Environments & Tools"
+  },
+  "cv": {
+    "title": "My Resume",
+    "experience": "Professional Experience",
+    "education": "Education",
+    "trainings": "Trainings",
+    "interests": "Interests & Hobbies",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "An error occurred while sending. Please try again.",
+    "reply_email": "Reply email"
+  }
+} 

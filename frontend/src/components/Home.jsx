@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Home = ({ scrollToProjects }) => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen w-full text-white relative overflow-hidden md:pl-64">
       {/* Icône < /> animée, blanche et flottante */}
@@ -24,26 +26,23 @@ const Home = ({ scrollToProjects }) => {
       <div className="w-full px-4 md:px-8 lg:px-16 pt-24 md:pt-32 relative z-10 max-w-full md:max-w-[calc(100%-2rem)]">
         <div className="max-w-3xl">
           <h2 className="text-3xl font-light mb-4">
-            Bonjour,
+            {t('home.hello')}
             <span className="block w-32 h-1.5 bg-yellow-400 mt-2"></span>
           </h2>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight">
-            Je suis Vignes<br />Ibrahim
+            {t('home.iam')}
           </h1>
           
           <div className="mb-10">
             <h3 className="text-3xl md:text-4xl font-semibold text-yellow-400">
-              développeur web
+              {t('home.job')}
             </h3>
             <div className="text-gray-400 text-xl">&lt;/&gt;</div>
           </div>
           
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-            Passionné par le développement d'applications web modernes 
-            et créatives. En tant que développeur full stack, je maîtrise à la 
-            fois les technologies front-end et back-end pour créer des 
-            expériences utilisateur complètes et performantes.
+            {t('home.description')}
           </p>     
         </div>
       </div>
