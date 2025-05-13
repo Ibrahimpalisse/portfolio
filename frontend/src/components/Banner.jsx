@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGlobe } from 'react-icons/fa';
-// Remplacer ce chemin par le bon si imagePort.jpg existe
 import imagePort from '../../public/icon/imagePort.jpg';
 
 const Banner = ({ name, title }) => {
