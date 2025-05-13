@@ -186,8 +186,9 @@ const Banner = ({ name, title }) => {
             ))}
           </nav>
           <div className="relative py-6 px-4">
-            <a 
-              href="#download" 
+            <a
+              href="/cv.pdf"
+              download
               className="flex items-center justify-center bg-blue-600/90 hover:bg-blue-700 text-white py-3 px-4 rounded-md transition shadow-md"
             >
               <span className="mr-2">⬇️</span>
@@ -259,8 +260,9 @@ const Banner = ({ name, title }) => {
               ))}
             </nav>
             <div className="py-8 px-8">
-              <a 
-                href="#download" 
+              <a
+                href="/CV/cv.pdf"
+                download
                 className="flex items-center justify-center bg-blue-600 text-white py-3 px-5 rounded-md shadow-md hover:bg-blue-700 transition"
                 onClick={() => setMobileMenuOpen(false)}
               >
