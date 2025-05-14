@@ -189,7 +189,7 @@ const Banner = ({ name, title }) => {
             <a
               href="/cv.pdf"
               download
-              className="flex items-center justify-center bg-blue-600/90 hover:bg-blue-700 text-white py-5 md:py-3 px-4 rounded-md transition shadow-md"
+              className="flex items-center justify-center bg-blue-600/90 hover:bg-blue-700 text-white py-3 px-4 rounded-md transition shadow-md"
             >
               <span className="mr-2">⬇️</span>
               <span>{t('banner.download_cv')}</span>
@@ -225,7 +225,7 @@ const Banner = ({ name, title }) => {
         >
           <div className="absolute inset-0 bg-blue-900/50"></div>
           <div className="relative z-10 flex flex-col h-full w-full pt-20">
-            <div className="flex flex-col items-center mt-4 mb-10">
+            <div className="flex flex-col items-center mt-4 mb-6">
               <div className="relative w-20 h-20 mb-5">
                 <div className="absolute inset-0 rounded-full bg-blue-600"></div>
                 <div className="absolute inset-0 rounded-full border border-yellow-400"></div>
@@ -234,8 +234,19 @@ const Banner = ({ name, title }) => {
                 </div>
               </div>
               <h1 className="text-white text-2xl font-bold mb-3">{t('banner.name')}</h1>
-              <div className="px-4 py-1 bg-yellow-400 rounded-full">
+              <div className="px-4 py-1 bg-yellow-400 rounded-full mb-4">
                 <span className="text-gray-900 font-semibold">{t('banner.title')}</span>
+              </div>
+              <div className="p-4 w-full flex justify-center">
+                <a
+                  href="/CV/cv.pdf"
+                  download
+                  className="flex items-center justify-center bg-blue-600 text-white py-3 px-5 rounded-md shadow-md hover:bg-blue-700 transition w-full max-w-xs mb-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span className="mr-2">⬇️</span>
+                  <span>{t('banner.download_cv')}</span>
+                </a>
               </div>
             </div>
             <nav className="flex-1 px-8">
@@ -259,17 +270,6 @@ const Banner = ({ name, title }) => {
                 </div>
               ))}
             </nav>
-            <div className="py-8 px-8">
-              <a
-                href="/CV/cv.pdf"
-                download
-                className="flex items-center justify-center bg-blue-600 text-white py-3 px-5 rounded-md shadow-md hover:bg-blue-700 transition"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="mr-2">⬇️</span>
-                <span>{t('banner.download_cv')}</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>
