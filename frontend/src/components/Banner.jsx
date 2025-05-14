@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGlobe } from 'react-icons/fa';
+import { FaGlobe, FaHome, FaLaptopCode, FaRegListAlt, FaFileAlt, FaComments } from 'react-icons/fa';
 import imagePort from '../../public/icon/imagePort.jpg';
 
 const Banner = ({ name, title }) => {
@@ -97,11 +97,11 @@ const Banner = ({ name, title }) => {
   }, []);
 
   const navItems = [
-    { id: 'accueil', icon: '🏠', label: t('menu.accueil'), href: '#accueil' },
-    { id: 'projets', icon: '💻', label: t('menu.projets'), href: '#projets' },
-    { id: 'competences', icon: '📝', label: t('menu.competences'), href: '#competences' },
-    { id: 'cv', icon: '📄', label: t('menu.cv'), href: '#cv' },
-    { id: 'contact', icon: '💬', label: t('menu.contact'), href: '#contact' },
+    { id: 'accueil', icon: <FaHome className="text-yellow-400" />, label: t('menu.accueil'), href: '#accueil' },
+    { id: 'projets', icon: <FaLaptopCode className="text-yellow-400" />, label: t('menu.projets'), href: '#projets' },
+    { id: 'competences', icon: <FaRegListAlt className="text-yellow-400" />, label: t('menu.competences'), href: '#competences' },
+    { id: 'cv', icon: <FaFileAlt className="text-yellow-400" />, label: t('menu.cv'), href: '#cv' },
+    { id: 'contact', icon: <FaComments className="text-yellow-400" />, label: t('menu.contact'), href: '#contact' },
   ];
 
   return (
