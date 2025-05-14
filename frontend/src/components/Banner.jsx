@@ -12,6 +12,7 @@ const Banner = ({ name, title }) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (mobileMenuOpen) return;
       const sections = ['accueil', 'projets', 'competences', 'cv', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -29,7 +30,7 @@ const Banner = ({ name, title }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [mobileMenuOpen]);
 
   // Fermer le menu langue si on clique ailleurs
   useEffect(() => {
@@ -224,7 +225,7 @@ const Banner = ({ name, title }) => {
           }}
         >
           <div className="absolute inset-0 bg-blue-900/50"></div>
-          <div className="relative z-10 flex flex-col h-full w-full pt-20">
+         <div className="relative z-10 flex flex-col h-full w-full pt-20 pb-16 overflow-y-auto">
             <div className="flex flex-col items-center mt-4 mb-6">
               <div className="relative w-20 h-20 mb-5">
                 <div className="absolute inset-0 rounded-full bg-blue-600"></div>
