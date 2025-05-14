@@ -176,7 +176,7 @@ export default function Contact() {
         
         {/* Cadre infos contact */}
         <div className="flex-1 bg-[#22304a]/80 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-yellow-400/40 p-8 flex flex-col items-center justify-center gap-6 min-w-[280px] max-w-xl mx-auto md:mx-0 transition-all duration-300">
-          <a href="https://github.com/ton-github" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 text-3xl flex items-center gap-3 transition-all duration-200 hover:scale-105">
+          <a href="https://github.com/Ibrahimpalisse" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 text-3xl flex items-center gap-3 transition-all duration-200 hover:scale-105">
             <FaGithub /> <span className="text-lg font-semibold">GitHub</span>
           </a>
           <a href="https://linkedin.com/in/ton-linkedin" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-yellow-400 text-3xl flex items-center gap-3 transition-all duration-200 hover:scale-105">

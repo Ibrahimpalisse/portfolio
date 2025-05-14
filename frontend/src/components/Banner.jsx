@@ -189,7 +189,7 @@ const Banner = ({ name, title }) => {
             <a
               href="/cv.pdf"
               download
-              className="flex items-center justify-center bg-blue-600/90 hover:bg-blue-700 text-white py-3 px-4 rounded-md transition shadow-md"
+              className="flex items-center justify-center bg-blue-600/90 hover:bg-blue-700 text-white py-5 md:py-3 px-4 rounded-md transition shadow-md"
             >
               <span className="mr-2">⬇️</span>
               <span>{t('banner.download_cv')}</span>
@@ -216,7 +216,7 @@ const Banner = ({ name, title }) => {
           onClick={() => setMobileMenuOpen(false)}
         ></div>
         <div 
-          className={`fixed top-0 left-0 bottom-0 w-64 z-30 transition-transform duration-300 ease-in-out shadow-xl ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+          className={`fixed top-0 left-0 bottom-0 w-64 z-30 transition-transform duration-300 ease-in-out shadow-xl ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} h-screen overflow-y-auto`}
           style={{
             backgroundImage: `url(${imagePort})`,
             backgroundSize: 'cover',
