@@ -179,14 +179,14 @@ export default function Contact() {
           <a href="https://github.com/Ibrahimpalisse" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 text-3xl flex items-center gap-3 transition-all duration-200 hover:scale-105">
             <FaGithub /> <span className="text-lg font-semibold">GitHub</span>
           </a>
-          <a href="https://linkedin.com/in/ton-linkedin" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-yellow-400 text-3xl flex items-center gap-3 transition-all duration-200 hover:scale-105">
+          <a href="" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-yellow-400 text-3xl flex items-center gap-3 transition-all duration-200 hover:scale-105">
             <FaLinkedin /> <span className="text-lg font-semibold">LinkedIn</span>
           </a>
           <span className="flex items-center gap-3 text-white text-lg">
-            <FaPhone className="text-pink-400" /> 06 12 34 56 78
+            <FaPhone className="text-pink-400" /> 07.63.88.37.20
           </span>
           <span className="flex items-center gap-3 text-white text-lg">
-            <FaEnvelope className="text-yellow-400" /> mon.email@email.com
+            <FaEnvelope className="text-yellow-400" />ibrahim.vignes@gmail.com
           </span>
         </div>
       </div>
